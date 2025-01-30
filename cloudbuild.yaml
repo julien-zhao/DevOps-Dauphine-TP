@@ -1,0 +1,15 @@
+steps:
+  # Étape 1 : Initialisation de Terraform
+  - name: "hashicorp/terraform:1.4.0"  # Utilisez une version stable comme 1.4.0 ou la dernière version disponible
+    args: ["init"]
+
+  # Étape 2 : Planification des changements Terraform
+  - name: "hashicorp/terraform:1.4.0"
+    args: ["plan"]
+
+  # Étape 3 : Application des changements Terraform
+  - name: "hashicorp/terraform:1.4.0"
+    args: ["apply", "-auto-approve"]
+
+# Temps d'attente maximum pour le build
+timeout: "1200s"

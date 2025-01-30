@@ -1,0 +1,17 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'us-central1-docker.pkg.dev/valid-song-441707-t2/website-tools/my-wordpress-image'
+      - '.'
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'auth'
+      - 'configure-docker'
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'us-central1-docker.pkg.dev/valid-song-441707-t2/website-tools/my-wordpress-image'
+images:
+  - 'us-central1-docker.pkg.dev/valid-song-441707-t2/website-tools/my-wordpress-image'

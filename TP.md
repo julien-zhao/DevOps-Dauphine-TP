@@ -57,8 +57,12 @@ Wordpress dispose d'une image Docker officielle disponible sur [DockerHub](https
 1. Récupérer l'image sur votre machine (Cloud Shell)
 
 2. Lancer l'image docker et ouvrez un shell à l'intérieur de votre container:
-   1. Quel est le répertoire courant du container (WORKDIR) ?
-   2. Quelles sont les différents fichiers html contenu dans WORKDIR ?
+   1. Quel est le répertoire courant du container (WORKDIR) ? Le répertoire de travail par défaut dans le container est /var/www/html
+   2. Quelles sont les différents fichiers html contenu dans WORKDIR ?  index.php        wp-admin              wp-config-sample.php  wp-links-opml.php  wp-settings.php
+license.txt      wp-blog-header.php    wp-content            wp-load.php        wp-signup.php
+readme.html      wp-comments-post.php  wp-cron.php           wp-login.php       wp-trackback.php
+wp-activate.php  wp-config-docker.php  wp-includes           wp-mail.php        xmlrpc.php
+
 
 3. Supprimez le container puis relancez en un en spécifiant un port binding (une correspondance de port).
 
@@ -66,7 +70,19 @@ Wordpress dispose d'une image Docker officielle disponible sur [DockerHub](https
 
    2. Avec la commande `curl`, faites une requêtes depuis votre machine hôte à votre container wordpress. Quelle est la réponse ? (il n'y a pas piège, essayez sur un port non utilisé pour constater la différence)
 
+   le curl marche mais quand j'accede a la page http://localhost:8000, impossible de charger la page
+
+   avec un autre port :curl: (7) Failed to connect to localhost port 8080: Connection refused
+
+
+
    3. Afficher les logs de votre container après avoir fait quelques requêtes, que voyez vous ?
+   informations sur les requêtes HTTP entrantes et d'autres logs générés par WordPress.
+WordPress
+Select a default language
+
+
+
    4. Utilisez l'aperçu web pour afficher le résultat du navigateur qui se connecte à votre container wordpress
       1. Utiliser la fonction `Aperçu sur le web`
         ![web_preview](images/wordpress_preview.png)
